@@ -42,7 +42,7 @@ for($i=1;$i<=5;$i++)
 {
   for($j=0;$j<20;$j++)
   {
-    $selectTiMu = "SELECT * FROM `testDB`.`TiMu`  WHERE `题号` = '".$i."_". (random_int(1,20)+20*$j) ."';";
+    $selectTiMu = "SELECT `题号`,`题目描述`,'A','B','C','D' FROM `testDB`.`TiMu`  WHERE `题号` = '".$i."_". (random_int(1,5)+5*$j) ."';";
 
     $result=$conn->query($selectTiMu);
     if ($result->num_rows > 0)
