@@ -16,11 +16,15 @@ body {
   margin-right: 20%;
   */
   text-align: center;
+  /*
   background-color: balck;
+  */
 }
 
 .sign_in_table{
+  /*
   background-color: gray;
+  */
   height: 647px;
 }
 
@@ -73,8 +77,9 @@ body {
 }
 
 .questions{
+  /*
   background-color: white;
-
+  */
 }
 
 .question
