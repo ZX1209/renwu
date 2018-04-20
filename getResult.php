@@ -80,11 +80,12 @@ for($i=0;$i<$arraylen;$i++)
 
 }
 
+' ".$院系 ."', '".$班级 ."', '".$学号 ."', '".$姓名 ."',
+`院系`, `班级`, `学号`, `姓名`,
 
-//将用户得分写入数据库
-$add = "INSERT INTO `testDB`.`YonHu` (`院系`, `班级`, `学号`, `姓名`,`成绩`,`提交时间`) VALUES (' ".$院系 ."', '".$班级 ."', '".$学号 ."', '".$姓名 ."','". $result ."',now() );";
+$update ="UPDATE `testDB`.`YonHu` SET `成绩` = ' ". $result ." ' , `提交时间` = now() WHERE `院系`='". $院系 ." ' AND `班级`=' ". $班级 ." ' AND `学号`=' ". $学号 ." ' AND `姓名`=' ". $姓名 ." ';"
 
-$conn->query($add);
+$conn->query($update);
 
 $response = ["成绩"=>$result];
 
