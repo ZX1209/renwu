@@ -36,7 +36,7 @@ function createQuestion(code,describes,answers)
     tmp_choise.setAttribute("name",code);
     tmp_choise.setAttribute("id",""+code+codeArray[i]);
     answersNode.append(tmp_choise);
-    answersNode.append(answers[i]);
+    answersNode.append(codeArray[i]+" : "answers[i]+"   ");
   }
 
   questionNode.append(describeNode);
@@ -72,7 +72,7 @@ function setTiMu(result)
 
 
 function start(){
-  $.ajax({url:"./getTiMu.php",type:"get",dataType:"json",success:function(result){alert(result);}})
+  $.ajax({url:"./getTiMu.php",type:"get",dataType:"json",success:function(result){setTiMu(result);}})
 
 }
 

@@ -16,11 +16,11 @@ body {
   margin-right: 20%;
   */
   text-align: center;
-  background-image: url("./resources/28491525.jpg");
+  background-color: balck;
 }
 
 .sign_in_table{
-  background-image: url("./resources/28491525.jpg");
+  background-color: gray;
   height: 647px;
 }
 
@@ -73,7 +73,7 @@ body {
 }
 
 .questions{
-  background-image: url("./resources/28491525.jpg");
+  background-color: white;
 
 }
 
