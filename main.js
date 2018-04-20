@@ -62,10 +62,6 @@ function setTiMu(result)
     var tmpQuestionNode = createQuestion(result[i]["题号"],result[i]["题目描述"],[result[i]["A"],result[i]["B"],result[i]["C"],result[i]["D"]]);
     questions.append(tmpQuestionNode);
   }
-
-  var result_button=$("<div class='submit_result'><input type='submit' id='result_submit' value='提交' onclick='getResult();' /></div>");
-  questions.append(result_button);
-
   
   $(".main_area").empty();
   $(".main_area").append(questions);
@@ -97,6 +93,10 @@ function login()
 
   //等待回应跳转...
   start();
+
+  var result_button=$("<div class='submit_result'><input type='submit' id='result_submit' value='提交' onclick='getResult();' /></div>");
+  $(".questions").append(result_button);
+
 
 
 
