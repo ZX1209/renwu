@@ -66,6 +66,9 @@ function setTiMu(result)
   $(".main_area").empty();
   $(".main_area").append(questions);
 
+  var result_button=$("<div class='submit_result'><input type='submit' id='result_submit' value='提交' onclick='getResult();' /></div>");
+  $(".questions").append(result_button);
+
 }
 
 
@@ -94,8 +97,7 @@ function login()
   //等待回应跳转...
   start();
 
-  var result_button=$("<div class='submit_result'><input type='submit' id='result_submit' value='提交' onclick='getResult();' /></div>");
-  $(".questions").append(result_button);
+
 
 
 
