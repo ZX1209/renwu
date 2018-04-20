@@ -80,7 +80,7 @@ for($i=0;$i<$arraylen;$i++)
 
 }
 
-$update ="UPDATE `testDB`.`YonHu` SET `成绩` = ' ". $result ." ' , `提交时间` = now() WHERE `院系`='". $院系 ." ' AND `班级`=' ". $班级 ." ' AND `学号`=' ". $学号 ." ' AND `姓名`=' ". $姓名 ." ';"
+$update ="UPDATE `testDB`.`YonHu` SET `成绩` = ' ". $result ." ' , `提交时间` = now() WHERE `院系`='". $院系 ." ' AND `班级`=' ". $班级 ." ' AND `学号`=' ". $学号 ." ' AND `姓名`=' ". $姓名 ." ';";
 
 $conn->query($update);
 
