@@ -51,7 +51,7 @@ switch($_SERVER['REQUEST_METHOD'] ) {
             $input = $_GET;
     }
 
-$input = ["院系"=>"nj","班级"=>"jlk","姓名"=>"jkakjsfj","学号"=>"sjdflak","密码"=>"123456"];
+//$input = ["院系"=>"nj","班级"=>"jlk","姓名"=>"jkakjsfj","学号"=>"sjdflak","密码"=>"123456"];
 
 $院系=$input["院系"];
 $班级=$input["班级"];
