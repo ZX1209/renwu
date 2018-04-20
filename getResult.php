@@ -54,14 +54,29 @@ switch($_SERVER['REQUEST_METHOD'] ) {
 
 $conn=connect_mysql();
 
-//判断答案是否正确
-$isin = "SELECT `学号` FROM `testDB`.`YonHu` WHERE `学号` = '${学号}' AND `密码` = '${密码};' ";
+$arraylen=count($input["回答"]);
 
+for($i=0;$i<$arraylen;$i++)
+{
+  //$input["回答"][$i]["题号"];
+  //$input["回答"][$i]["答案"];
 
-explode("-",$str);
+  //判断答案是否正确
+  $iscorrect = "SELECT `题号` FROM `testDB`.`TiMu` WHERE `题号` = '$input["回答"][$i]["题号"]' AND `正答` = '$input["回答"][$i]["答案"]' ";
 
-$result++;
+  $qresult=$conn->query($iscorrect);
 
+  if($qresult->num_rows==1)
+  {
+    $result++;
+  }
 
+}
+
+$response = ["结果":$result];
+
+echo json_encode($response,JSON_UNESCAPED_UNICODE);
+
+$conn->close();
 
 ?>

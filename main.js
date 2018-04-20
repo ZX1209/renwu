@@ -108,17 +108,34 @@ function showResult(result)
 
 function getResult()
 {
-  //遍历取值
-  var answerList=$(".questions .question ").children();
-  for(var i=0;i<questionsList.length;i++)
+  //取得全部的选项节点
+  var answerList=$(".questions .question .answers").children();
+  //筛选出被选中的选项
+  answerList=answerList.filter(":checked");
+
+  var answersArray = [];
+
+  for(var i=0;i<answerList.length;i++)
   {
     //被checked的radio,,的id就是题号加答案
+    var tmpStr=answerList[i].id;
+    var strLen=tmpStr.length;
+    var tmpTiHao=tmpStr.substr(0,strLen-1);
+    var tmpDaAn=tmpStr.substr(strLen-1,strLen);
+
+    var tmpAnswer ={"题号":tmpTiHao,"答案":tmpDaAn};
+
+    answersArray.push(tmpAnswer);
   }
   //加入json列表
+  var jsonAnswers = {"回答"};
+  jsonAnswers["回答"]=answersArray;
 
   //传值
-
+  $.ajax({url:"./getResult.php",type:"post",data:jsonAnswers,success:function(result){alert(result);}})
   //获取结果并显示
+
+
 }
 
 

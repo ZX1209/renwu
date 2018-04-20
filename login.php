@@ -78,7 +78,7 @@ $conn->query($add);
 
 $response=["status"=>"OK"];
 
-echo json_encode($response);
+echo json_encode($response,JSON_UNESCAPED_UNICODE);
 
 
 
