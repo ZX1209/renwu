@@ -52,6 +52,9 @@ switch($_SERVER['REQUEST_METHOD'] ) {
             $input = $_GET;
     }
 
+$hoh=["回答"=>[0=>["题号"=>"1_2","答案"=>"A"],1=>["题号"=>"2_10","答案"=>"A"]]];
+
+
 $conn=connect_mysql();
 
 $arraylen=count($input["回答"]);
@@ -62,7 +65,7 @@ for($i=0;$i<$arraylen;$i++)
   //$input["回答"][$i]["答案"];
 
   //判断答案是否正确
-  $iscorrect = "SELECT `题号` FROM `testDB`.`TiMu` WHERE `题号` = '$input["回答"][$i]["题号"]' AND `正答` = '$input["回答"][$i]["答案"]' ";
+  $iscorrect = "SELECT `题号` FROM `testDB`.`TiMu` WHERE `题号` = '" . $input["回答"][$i]["题号"]."' AND `正答` = '" . $input["回答"][$i]["答案"] . "'; ";
 
   $qresult=$conn->query($iscorrect);
 
@@ -73,7 +76,7 @@ for($i=0;$i<$arraylen;$i++)
 
 }
 
-$response = ["结果":$result];
+$response = ["结果"=>$result];
 
 echo json_encode($response,JSON_UNESCAPED_UNICODE);
 

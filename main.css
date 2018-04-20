@@ -84,8 +84,7 @@ body {
   */
 }
 
-.question
-{
+.question {
   margin:0px 10% 20px 10%;
   padding: 10px 10px 0px 10px;
   background: #fff;
@@ -133,4 +132,8 @@ left-fixed 和 right-fixed
 .left-fixed {
   left:0;
   top:20%;
+}
+
+.submit_result{
+  background-color: red;
 }

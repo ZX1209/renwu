@@ -63,6 +63,8 @@ function setTiMu(result)
     questions.append(tmpQuestionNode);
   }
 
+  var result_button=$("<div class='submit_result'><input type="submit" id="result_submit" value="提交" onclick="getResult()"></div>");
+  questions.append(result_button);
 
   
   $(".main_area").empty();
@@ -95,6 +97,8 @@ function login()
 
   //等待回应跳转...
   start();
+
+
 
 }
 
