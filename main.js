@@ -72,7 +72,7 @@ function setTiMu(result)
 
 
 function start(){
-  $.ajax({url:"./getTiMu.php",type:"get",success:setTiMu(result)})
+  $.ajax({url:"./getTiMu.php",type:"get",success:function(result){alert(result);}})
 
 }
 
