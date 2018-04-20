@@ -51,6 +51,8 @@ switch($_SERVER['REQUEST_METHOD'] ) {
             $input = $_GET;
     }
 
+$input = ["院系"=>"nj","班级"=>"jlk","姓名"=>"jkakjsfj","学号"=>"sjdflak","密码"=>"123456"];
+
 $院系=$input["院系"];
 $班级=$input["班级"];
 $姓名=$input["姓名"];
@@ -61,26 +63,43 @@ $密码=$input["密码"];
 $conn=connect_mysql();
 
 //判断用户状态
-$isin = "SELECT `学号` FROM `testDB`.`YonHu` WHERE `学号` = '${学号}' AND `密码` = '${密码};' ";
+$isin = "SELECT * FROM `testDB`.`YonHu` WHERE `学号` = '" . $学号 ."' AND `密码` = '" . $密码 . "' AND `姓名` = '" . $姓名 . "';' ";
+
+$qresult=$conn->query($isin);
+
+//是否登陆过..
+if($qresult)
+{
+  $row = $qresult->fetch_assoc();
+
+  //判断是否已经结束了..
+  if($row["结束时间"] != NULL)
+  {
+    $response=["status"=>"relogin"];
+  }
+
+}
+else
+{
+  //第一次登陆..插值
+  //good code
+  $add = "INSERT INTO `testDB`.`YonHu` (`院系`, `班级`, `学号`, `姓名`,`开始时间`) VALUES (' ".$院系 ."', '".$班级 ."', '".$学号 ."', '".$姓名 ."',now() );";
+  $conn->query($add);
+
+  $response=["status"=>"OK"];
+
+}
 
 
 
-//第一次登陆..插值
-//good code
-$add = "INSERT INTO `testDB`.`YonHu` (`院系`, `班级`, `学号`, `姓名`,`开始时间`) VALUES ('${院系}', '${班级}', '${学号}', '${姓名}',now() );";
 
-$conn->query($add);
 
 //合法重登..不插值
 
 //违法登陆..拒绝
 
 
-$response=["status"=>"OK"];
-
 echo json_encode($response,JSON_UNESCAPED_UNICODE);
-
-
 
 $conn->close();
 

@@ -3,6 +3,7 @@ var className;
 var userName;
 var userCode;
 var userPassward;
+var userInfo;
 
 function createQuestion(code,describes,answers)
 {
@@ -83,19 +84,24 @@ function login()
   /*
   提取表单值
   */
-  var collegeName = $("#college_name")[0].value;
-  var className=$("#class_name")[0].value;
-  var userName=$("#user_name")[0].value;
-  var userCode=$("#user_code")[0].value;
-  var userPassward=$("#user_passward")[0].value;
+  collegeName = $("#college_name")[0].value;
+  className=$("#class_name")[0].value;
+  userName=$("#user_name")[0].value;
+  userCode=$("#user_code")[0].value;
+  userPassward=$("#user_passward")[0].value;
   
   //做成json格式
-  var userInfo={"院系":collegeName,"班级":className,"姓名":userName,"学号":userCode,"密码":userPassward};
+  userInfo={"院系":collegeName,"班级":className,"姓名":userName,"学号":userCode,"密码":userPassward};
   //发送
-  //$.ajax({url:"./login.php",type:"post",data:userInfo,success:function(result){alert(result);}})
+  $.ajax({url:"./login.php",type:"post",data:userInfo,dataType:"json",success:function(result){
+    if(result["status"] =="OK")
+      {
+        start();
+      }
+    }});
 
   //等待回应跳转...
-  start();
+  
 
 
 
@@ -136,6 +142,7 @@ function getResult()
   //加入json列表
   var jsonAnswers = {};
   jsonAnswers["回答"]=answersArray;
+  jsonAnswers["用户"]=userInfo;
 
   //传值
   $.ajax({url:"./getResult.php",type:"post",data:jsonAnswers,success:function(result){alert(result);}})

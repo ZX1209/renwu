@@ -76,6 +76,12 @@ for($i=0;$i<$arraylen;$i++)
 
 }
 
+
+//将用户得分写入数据库
+$add = "INSERT INTO `testDB`.`YonHu` (`院系`, `班级`, `学号`, `姓名`,,`成绩`,`结束时间`) VALUES (' ".$院系 ."', '".$班级 ."', '".$学号 ."', '".$姓名 ."','". $成绩 ."',now() );";
+
+$conn->query($add);
+
 $response = ["结果"=>$result];
 
 echo json_encode($response,JSON_UNESCAPED_UNICODE);
