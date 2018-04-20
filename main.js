@@ -36,7 +36,7 @@ function createQuestion(code,describes,answers)
     tmp_choise.setAttribute("name",code);
     tmp_choise.setAttribute("id",""+code+codeArray[i]);
     answersNode.append(tmp_choise);
-    answersNode.append(codeArray[i]+" : "answers[i]+"   ");
+    answersNode.append(codeArray[i]+" : "+answers[i]+"   ");
   }
 
   questionNode.append(describeNode);
