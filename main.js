@@ -128,7 +128,7 @@ function getResult()
     answersArray.push(tmpAnswer);
   }
   //加入json列表
-  var jsonAnswers = {"回答"};
+  var jsonAnswers = {};
   jsonAnswers["回答"]=answersArray;
 
   //传值
