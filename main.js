@@ -59,7 +59,7 @@ function setTiMu(result)
     result[i]["题目描述"];
     result[i]["选项"];
     */
-    var tmpQuestionNode = createQuestion(result[i]["题号"],result[i]["题目描述"],result[i]["选项"]);
+    var tmpQuestionNode = createQuestion(result[i]["题号"],result[i]["题目描述"],[result[i]["A"],result[i]["B"],result[i]["C"],result[i]["D"]]);
     questions.append(tmpQuestionNode);
   }
 
