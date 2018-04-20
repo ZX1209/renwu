@@ -52,7 +52,11 @@ switch($_SERVER['REQUEST_METHOD'] ) {
             $input = $_GET;
     }
 
-$hoh=["回答"=>[0=>["题号"=>"1_2","答案"=>"A"],1=>["题号"=>"2_10","答案"=>"A"]]];
+$院系=$input["用户"]["院系"];
+$班级=$input["用户"]["班级"];
+$姓名=$input["用户"]["姓名"];
+$学号=$input["用户"]["学号"];
+$密码=$input["用户"]["密码"];
 
 
 $conn=connect_mysql();
@@ -78,11 +82,11 @@ for($i=0;$i<$arraylen;$i++)
 
 
 //将用户得分写入数据库
-$add = "INSERT INTO `testDB`.`YonHu` (`院系`, `班级`, `学号`, `姓名`,`成绩`,`提交时间`) VALUES (' ".$院系 ."', '".$班级 ."', '".$学号 ."', '".$姓名 ."','". $成绩 ."',now() );";
+$add = "INSERT INTO `testDB`.`YonHu` (`院系`, `班级`, `学号`, `姓名`,`成绩`,`提交时间`) VALUES (' ".$院系 ."', '".$班级 ."', '".$学号 ."', '".$姓名 ."','". $result ."',now() );";
 
 $conn->query($add);
 
-$response = ["结果"=>$result];
+$response = ["成绩"=>$result];
 
 echo json_encode($response,JSON_UNESCAPED_UNICODE);
 
