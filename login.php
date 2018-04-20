@@ -83,7 +83,7 @@ else
 {
   //第一次登陆..插值
   //good code
-  $add = "INSERT INTO `testDB`.`YonHu` (`院系`, `班级`, `学号`, `姓名`,`开始时间`) VALUES (' ".$院系 ."', '".$班级 ."', '".$学号 ."', '".$姓名 ."',now() );";
+  $add = "INSERT INTO `testDB`.`YonHu` (`院系`, `班级`, `学号`, `姓名`,`开始时间`) VALUES ('".$院系 ."', '".$班级 ."', '".$学号 ."', '".$姓名 ."',now() );";
   $conn->query($add);
 
   $response=["status"=>"OK"];
